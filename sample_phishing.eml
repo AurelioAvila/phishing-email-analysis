@@ -1,0 +1,43 @@
+From: "Microsoft Security" <security-alert@micros0ft-support.com>
+To: aurelio.avila@example.com
+Subject: URGENT: Your account has been compromised — verify immediately
+Date: Mon, 04 May 2026 09:14:22 +0000
+Message-ID: <20260504091422.5A3F1@micros0ft-support.com>
+X-Originating-IP: [185.220.101.45]
+Received: from mail.micros0ft-support.com ([185.220.101.45])
+    by mx.example.com with ESMTP id A1B2C3D4
+    for <aurelio.avila@example.com>; Mon, 04 May 2026 09:14:22 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="boundary42"
+
+--boundary42
+Content-Type: text/plain; charset="utf-8"
+
+Dear customer,
+
+We have detected suspicious activity on your Microsoft account.
+Your account has been temporarily suspended for your protection.
+
+To restore access, please verify your credentials immediately:
+http://login-micros0ft.xyz/verify?token=abc123
+
+Failure to act within 24 hours will result in permanent account closure.
+
+Microsoft Security Team
+
+--boundary42
+Content-Type: text/html; charset="utf-8"
+
+<html>
+<body>
+<p>Dear customer,</p>
+<p>We have detected <b>suspicious activity</b> on your Microsoft account.
+Your account has been temporarily suspended for your protection.</p>
+<p>To restore access, please <a href="http://login-micros0ft.xyz/verify?token=abc123">
+verify your credentials immediately</a>.</p>
+<p>Failure to act within 24 hours will result in permanent account closure.</p>
+<p>Microsoft Security Team</p>
+</body>
+</html>
+
+--boundary42--
