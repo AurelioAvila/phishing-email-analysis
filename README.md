@@ -24,10 +24,16 @@ actionable IOCs, and produce an incident report.
 4. Apply heuristic rules to flag typosquatting, suspicious TLDs, and urgency language
 5. Produce a verdict (PHISHING / CLEAN) and document findings
 
-## MITRE ATT&CK Mapping
+---
 
-- **T1566.002** — Phishing: Spearphishing Link
-- **T1078** — Valid Accounts (intended outcome of credential harvesting)
+## 🎯 MITRE ATT&CK Mapping
+
+| Technique | ID | Tactic |
+|-----------|-----|--------|
+| Phishing: Spearphishing Link | [T1566.002](https://attack.mitre.org/techniques/T1566/002/) | Initial Access (TA0001) |
+| Valid Accounts | [T1078](https://attack.mitre.org/techniques/T1078/) | Defense Evasion / Persistence |
+
+---
 
 ## Tools
 
@@ -38,16 +44,13 @@ actionable IOCs, and produce an incident report.
 
 ## Repository Structure
 
-```
-phishing-email-analysis/
-├── email_analyzer.py        # main analysis script
-├── sample_phishing.eml      # fictitious phishing sample for testing
-├── incident_report.md       # analyst write-up with IOCs and recommendations
-├── .env.example             # template for API key configuration
-├── .gitignore               # excludes .env and other sensitive files
-├── LICENSE                  # MIT
-└── README.md
-```
+    phishing-email-analysis/
+    ├── email_analyzer.py        # main analysis script
+    ├── sample_phishing.eml      # fictitious phishing sample for testing
+    ├── incident_report.md       # analyst write-up with IOCs and recommendations
+    ├── .env.example             # template for API key configuration
+    ├── .gitignore               # excludes .env and other sensitive files
+    └── README.md
 
 ## Setup
 
@@ -86,32 +89,13 @@ python email_analyzer.py sample_phishing.eml
 
 If no file is provided, the script defaults to `sample_phishing.eml`.
 
-## Sample Output
+---
 
-```
-========================================================================
- SOC PHISHING EMAIL ANALYSIS REPORT
- 2026-05-04 09:30:11
-========================================================================
- From            : "Microsoft Security" <security-alert@micros0ft-support.com>
- Subject         : URGENT: Your account has been compromised — verify immediately
- Originating IP  : 185.220.101.45
-------------------------------------------------------------------------
- IP Reputation   : 17/94 engines flagged
-------------------------------------------------------------------------
- URLs found      : 1
-  [1] http://login-micros0ft.xyz/verify?token=abc123
-      VT verdict: 22/94 engines flagged
-------------------------------------------------------------------------
- Heuristic indicators:
-  [!] Sender domain typosquatting suspected (micros0ft)
-  [!] Suspicious TLD detected in URL
-  [!] URL contains typosquatted brand name
-  [!] Subject line uses urgency / fear tactics
-========================================================================
- VERDICT: PHISHING — escalate to Tier 2
-========================================================================
-```
+## 📸 Screenshot
+
+![Python phishing analysis output](screenshot_python_output.png)
+
+---
 
 ## Detection Logic
 
@@ -146,12 +130,20 @@ The script combines two layers:
 - YARA rule integration for body content patterns
 - Export findings as JSON for downstream tooling (TheHive, MISP)
 
+---
+
 ## Disclaimer
 
 This project is for educational and portfolio purposes only.
 The sample email is fictitious. The script must never be used against
 emails or infrastructure for which you do not have explicit authorization.
 
-## License
+---
 
-MIT — see `LICENSE`.
+## 🔗 Related Projects
+
+| Project | Description |
+|---------|-------------|
+| [soc-home-lab](https://github.com/AurelioAvila/soc-home-lab) | End-to-end SOC lab with Microsoft Sentinel and Wazuh |
+| [malware-triage-hash](https://github.com/AurelioAvila/malware-triage-hash) | Python tool for malware triage via VirusTotal API |
+| [splunk-brute-force-detection](https://github.com/AurelioAvila/splunk-brute-force-detection) | Brute force detection with Splunk SPL |
