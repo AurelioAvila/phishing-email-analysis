@@ -1,5 +1,7 @@
 # Phishing Email Analysis — SOC Home Lab
 
+[![CI](https://github.com/AurelioAvila/phishing-email-analysis/actions/workflows/ci.yml/badge.svg)](https://github.com/AurelioAvila/phishing-email-analysis/actions/workflows/ci.yml)
+
 A Tier 1 SOC analyst workflow for triaging suspicious emails: parsing `.eml`
 files, extracting Indicators of Compromise (IOCs), and enriching them with
 threat intelligence from the VirusTotal v3 API.
