@@ -95,7 +95,7 @@ If no file is provided, the script defaults to `sample_phishing.eml`.
 
 ## 📸 Screenshot
 
-![Python phishing analysis output](screenshot_python_output.png)
+![Python phishing analysis output](docs/screenshots/screenshot_python_output.png)
 
 ---
 
