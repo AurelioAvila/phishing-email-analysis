@@ -49,10 +49,12 @@ actionable IOCs, and produce an incident report.
     phishing-email-analysis/
     ├── email_analyzer.py        # main analysis script
     ├── sample_phishing.eml      # fictitious phishing sample for testing
-    ├── incident_report.md       # analyst write-up with IOCs and recommendations
+    ├── docs/incident_report.md  # analyst write-up with IOCs and recommendations
     ├── .env.example             # template for API key configuration
     ├── .gitignore               # excludes .env and other sensitive files
     └── README.md
+
+[Read the analyst report](docs/incident_report.md) for the sample investigation.
 
 ## Setup
 
@@ -122,7 +124,11 @@ The script combines two layers:
   seconds between URL lookups to respect the rate limit.
 - The heuristic brand list is small by design (Microsoft, Google, PayPal,
   Amazon, Apple, Netflix). Extending it is straightforward.
-- The analyzer is static: it does not detonate attachments or follow links.
+- The analyzer is static: it does not extract attachment hashes, detonate
+  attachments or follow links. Attachment analysis remains planned.
+- The printed `CLEAN` label means that the implemented checks found no
+  flags; it is not proof that an email is safe, especially when reputation
+  lookups are unavailable.
 - No DKIM / SPF / DMARC validation yet (planned improvement).
 
 ## Planned Improvements
